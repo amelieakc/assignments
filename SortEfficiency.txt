@@ -1,0 +1,175 @@
+﻿
+Sort Algorithm
+Array Length
+Pass 1
+Pass 2
+Pass 3
+Pass 4
+Average
+Selection
+8
+34
+33
+35
+32
+34
+Selection
+16
+132
+133
+132
+134
+133
+Selection
+32
+522
+523
+525
+524
+524
+Selection
+64
+2073
+2075
+2075
+2072
+2074
+Selection
+128
+8249
+8250
+8252
+8252
+8251
+Quick
+8
+26
+20
+18
+17
+21
+Quick
+16
+56
+48
+53
+71
+57
+Quick
+32
+163
+127
+164
+126
+145
+Quick
+64
+361
+341
+328
+289
+330
+Quick
+128
+786
+802
+926
+746
+815
+Bucket
+8
+116
+116
+116
+116
+116
+Bucket
+16
+132
+132
+132
+132
+132
+Bucket
+32
+164
+164
+164
+164
+164
+Bucket
+64
+228
+228
+228
+228
+228
+Bucket
+128
+356
+356
+356
+356
+356
+
+3) Bucket sort: In big O notation, what is the expected efficiency? Why is it impractical as a general sorting algorithm?
+The expected efficiency is O(n). It is impractical to use this sorting method if many of the values occur close together. They will fall into the same bucket and will be sorted slower.
+
+OUTPUT: Selection Sort
+Robert-Gs-MBP-8:amelie griesrt$ g++ selectionSort.cpp
+Robert-Gs-MBP-8:amelie griesrt$ ./a.out
+The array consists of 16 elements: 
+Input: 
+17 8 49 82 83 86 98 29 1 31 59 59 28 30 75 74 
+Counter is: 133
+Output: 
+1 8 17 28 29 30 31 49 59 59 74 75 82 83 86 98 
+Robert-Gs-MBP-8:amelie griesrt$ g++ selectionSort.cpp
+Robert-Gs-MBP-8:amelie griesrt$ ./a.out
+The array consists of 32 elements: 
+Input: 
+71 45 56 88 79 35 19 40 2 42 16 72 59 7 42 76 20 11 2 53 37 7 6 83 80 93 98 29 36 59 21 16 
+Counter is: 523
+Output: 
+2 2 6 7 7 11 16 16 19 20 21 29 35 36 37 40 42 42 45 53 56 59 59 71 72 76 79 80 83 88 93 98 
+Robert-Gs-MBP-8:amelie griesrt$ 
+
+OUTPUT: Quick Sort
+Robert-Gs-MBP-8:amelie griesrt$ g++ quickSort.cpp
+Robert-Gs-MBP-8:amelie griesrt$ ./a.out
+The array consists of 16 elements: 
+Input: 
+96 50 52 40 49 83 31 93 30 27 100 14 45 16 79 21 
+Output: 
+14 16 21 27 30 31 40 45 49 50 52 79 83 93 96 100 
+Count: 57
+Robert-Gs-MBP-8:amelie griesrt$ g++ quickSort.cpp
+Robert-Gs-MBP-8:amelie griesrt$ ./a.out
+The array consists of 32 elements: 
+Input: 
+15 89 29 50 36 19 79 2 57 28 51 96 51 30 11 49 37 32 37 75 80 94 96 32 34 26 83 85 22 24 97 18 
+Output: 
+2 11 15 18 19 22 24 26 28 29 30 32 32 34 36 37 37 49 50 51 51 57 75 79 80 83 85 89 94 96 96 97 
+Count: 133
+Robert-Gs-MBP-8:amelie griesrt$ 
+
+
+
+OUTPUT: Bucket Sort
+Robert-Gs-MBP-8:amelie griesrt$ g++ bucketSort.cpp
+Robert-Gs-MBP-8:amelie griesrt$ ./a.out
+The array consists of 16 elements: 
+Input: 
+63 49 98 52 58 69 54 26 8 31 83 5 48 24 38 43 
+Count: 132
+Output: 
+5 8 24 26 31 38 43 48 49 52 54 58 63 69 83 98 
+Robert-Gs-MBP-8:amelie griesrt$ g++ bucketSort.cpp
+Robert-Gs-MBP-8:amelie griesrt$ ./a.out
+The array consists of 32 elements: 
+Input: 
+45 35 3 96 80 59 4 55 60 90 53 37 6 69 6 10 100 42 92 73 11 90 15 14 62 87 17 32 23 13 73 62 
+Count: 164
+Output: 
+3 4 6 6 10 11 13 14 15 17 23 32 35 37 42 45 53 55 59 60 62 62 69 73 73 80 87 90 90 92 96 100 
+Robert-Gs-MBP-8:amelie griesrt$ 

@@ -1,0 +1,17 @@
+﻿	
+Amelie Cameron
+
+	Board Class 
+
+
+	The board class should take in a vector of ships. There should also be member data and functions for the following:
+int member which stores the number of ships on the board
+int member which stores the size of the board 
+size of the board → getSize()
+the number of ships on the board → numShips()
+how many ships have sunk → numSunk()
+keep track of the total shots that miss their target → numMissed() 
+whether the user has won or lost → gameOutcome()
+how many points the user has → getUserPoints()
+how many shots the user has taken per round/game → numShots()
+

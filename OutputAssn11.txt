@@ -1,0 +1,37 @@
+﻿Robert-Gs-MBP-3:amelie griesrt$ g++ IntCollection.cpp IntCollectionProgram.cpp 
+Robert-Gs-MBP-3:amelie griesrt$ ./a.out
+Testing insertion operator
+IntCollection c : 
+45
+-210
+77
+102
+-39
+Size is 5
+Testing insertion operator END
+
+Testing copy constructor (c to b)
+IntCollection b : 
+45
+-210
+77
+102
+-39
+Testing copy constructor END
+
+Testing equals operator
+true if c and b are the same, false if different
+true
+Testing equals operator END
+
+Testing assignment operator (c to d)
+IntCollection d : 
+45
+-210
+77
+102
+-39
+Testing assignment operator END
+
+Robert-Gs-MBP-3:amelie griesrt$ 
+

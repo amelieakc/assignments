@@ -1,0 +1,238 @@
+﻿// Assignment 3 Amelie Cameron                                                                                                                      
+// This program figures out a number chosen by a human user.                                                                                        
+// The user thinks of a number between 1 and 100. The program guesses using binary search. The user will say if higher, lower, or correct.          
+
+#include <iostream>
+#include <stdlib.h>
+#include <algorithm>
+#include <cstdlib>
+using namespace std;
+
+char getUserResponseToGuess(int guess) {
+  char find;
+  cout << "Is your number " << guess <<" ? (h / c / l):" << endl;
+  cin >> find;
+  return find;
+}
+
+int getMidpoint(int min, int max) {
+  return (min + max) / 2;
+}
+
+int getRandomMidpoint(int min, int max) {
+  int randomMidpoint = rand() % (max - min - 1) + 1;
+  return min + randomMidpoint;
+}
+
+bool shouldPlayAgain() {
+  char answer;
+  cout << "Would you like to play again? (y / n): " << endl;
+  cin >> answer;
+
+  if(answer == 'y') {
+    return true; }
+  else {
+    cout << "That was fun! Goodbye." << endl;
+    return false; }
+}
+
+int binary_search(int arr[], int imin, int imax)
+{
+  int imid = getMidpoint(imin, imax);
+  // imid is the guess                                                                                                                              
+  char find = getUserResponseToGuess(imid);
+
+ if(find == 'l')
+   return binary_search(arr, imin, imid-1);
+ else if(find == 'h')
+   return binary_search(arr, imid+1, imax);
+ else if(find == 'c') {
+   cout << imid <<" is the correct number!" << endl;
+   return imid;
+ } else {
+   cout << "That character was not recognized." << endl;
+   return -1;
+ }
+}
+
+void playOneGame() {
+  int arr[100];
+  cout << "Choose a number between 1 and 100" << endl;
+  cout << "I'll guess, please respond h for higher, l for lower, or c for correct" << endl;
+  binary_search(arr,0, 99);
+}
+
+int main() {
+
+  do {
+    playOneGame();
+  } while(shouldPlayAgain());
+
+  return 0;
+}
+
+
+Output using getMidpoint function without randomization:
+
+robert-gs-mbp:amelie griesrt$ g++ assignment3.cpp
+robert-gs-mbp:amelie griesrt$ ./a.out
+Choose a number between 1 and 100
+I'll guess, please respond h for higher, l for lower, or c for correct
+Is your number 49 ? (h / c / l):
+h
+Is your number 74 ? (h / c / l):
+h
+Is your number 87 ? (h / c / l):
+l
+Is your number 80 ? (h / c / l):
+l
+Is your number 77 ? (h / c / l):
+l
+Is your number 75 ? (h / c / l):
+c
+75 is the correct number!
+Would you like to play again? (y / n): 
+y
+Choose a number between 1 and 100
+I'll guess, please respond h for higher, l for lower, or c for correct
+Is your number 49 ? (h / c / l):
+l
+Is your number 24 ? (h / c / l):
+l
+Is your number 11 ? (h / c / l):
+l
+Is your number 5 ? (h / c / l):
+l
+Is your number 2 ? (h / c / l):
+c
+2 is the correct number!
+Would you like to play again? (y / n): 
+n
+That was fun! Goodbye.
+robert-gs-mbp:amelie griesrt$ 
+
+
+Extra Credit: Output using getRandomMidpoint function:
+
+// Extra Credit: Assignment 3 Amelie Cameron                                                                                                                                                    
+// This program figures out a number chosen by a human user.                                                                                                                      
+// The user thinks of a number between 1 and 100. The program guesses using binary search. The user will say if higher, lower, or correct.                                        
+//This program uses getRandomMidpoint to determine guesses
+
+#include <iostream>
+#include <stdlib.h>
+#include <algorithm>
+#include <cstdlib>
+using namespace std;
+
+char getUserResponseToGuess(int guess) {
+  char find;
+  cout << "Is your number " << guess <<" ? (h / c / l):" << endl;
+  cin >> find;
+  return find;
+}
+
+int getMidpoint(int min, int max) {
+  return (min + max) / 2;
+}
+
+int getRandomMidpoint(int min, int max) {
+  int randomMidpoint = rand() % (max - min - 1) + 1;
+  return min + randomMidpoint;
+}
+
+bool shouldPlayAgain() {
+  char answer;
+  cout << "Would you like to play again? (y / n): " << endl;
+  cin >> answer;
+
+  if(answer == 'y') {
+    return true; }
+  else {
+    cout << "That was fun! Goodbye." << endl;
+    return false; }
+}
+
+int binary_search(int arr[], int imin, int imax)
+{
+  int imid = getRandomMidpoint(imin, imax);
+  // imid is the guess                                                                                                                                                            
+  char find = getUserResponseToGuess(imid);
+
+ if(find == 'l')
+   return binary_search(arr, imin, imid-1);
+ else if(find == 'h')
+   return binary_search(arr, imid+1, imax);
+ else if(find == 'c') {
+   cout << imid <<" is the correct number!" << endl;
+   return imid;
+ } else {
+   cout << "That character was not recognized." << endl;
+   return -1;
+ }
+}
+
+void playOneGame() {
+  int arr[100];
+  cout << "Choose a number between 1 and 100" << endl;
+  cout << "I'll guess, please respond h for higher, l for lower, or c for correct" << endl;
+  binary_search(arr,0, 99);
+}
+
+int main() {
+
+  do {
+    playOneGame();
+  } while(shouldPlayAgain());
+
+  return 0;
+}
+
+
+robert-gs-mbp:amelie griesrt$ g++ assignment3.cpp
+robert-gs-mbp:amelie griesrt$ ./a.out
+Choose a number between 1 and 100
+I'll guess, please respond h for higher, l for lower, or c for correct
+Is your number 50 ? (h / c / l):
+h
+Is your number 84 ? (h / c / l):
+l
+Is your number 75 ? (h / c / l):
+l
+Is your number 58 ? (h / c / l):
+h
+Is your number 66 ? (h / c / l):
+l
+Is your number 62 ? (h / c / l):
+c
+62 is the correct number!
+Would you like to play again? (y / n): 
+y
+Choose a number between 1 and 100
+I'll guess, please respond h for higher, l for lower, or c for correct
+Is your number 31 ? (h / c / l):
+h
+Is your number 77 ? (h / c / l):
+l
+Is your number 75 ? (h / c / l):
+l
+Is your number 45 ? (h / c / l):
+h
+Is your number 65 ? (h / c / l):
+l
+Is your number 59 ? (h / c / l):
+l
+Is your number 57 ? (h / c / l):
+l
+Is your number 55 ? (h / c / l):
+l
+Is your number 47 ? (h / c / l):
+h
+Is your number 52 ? (h / c / l):
+c
+52 is the correct number!
+Would you like to play again? (y / n): 
+n
+That was fun! Goodbye.
+robert-gs-mbp:amelie griesrt$ 
+

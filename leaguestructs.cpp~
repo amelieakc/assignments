@@ -1,0 +1,28 @@
+#include <iostream>
+#include <string>
+#include <sstream>
+using namespace std;
+
+struct winRecord
+{
+  int wins;
+  char* name;
+};
+
+  void initializeData(winRecord* standings, int size)
+  {
+    cout << "How many baseball team names would you like to enter?: " << endl;
+    cin >> size;
+
+    cout << "Enter a team name: " << endl;
+    getline(cin, standings->name);
+
+    cout << "Enter their win count: " << endl;
+    getline(cin, standings->wins);
+
+  }
+
+int main()
+{
+
+}

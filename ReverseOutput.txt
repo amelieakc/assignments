@@ -1,0 +1,50 @@
+﻿Robert-Gs-MBP-6:linkedList griesrt$ g++ main.cpp Node.cpp LinkedList.cpp PrecondViolatedExcep.cpp
+Robert-Gs-MBP-6:linkedList griesrt$ ./a.out
+
+Testing the Link-Based List:
+isEmpty: returns 1; should be 1 (true)
+Inserted one at position 1
+Inserted two at position 2
+Inserted three at position 3
+Inserted four at position 4
+Inserted five at position 5
+Inserted six at position 6
+isEmpty: returns 0; should be 0 (false)
+getLength returns : 6; should be 6
+The entry at position 4 is four; should be four
+After replacing the entry at position 3 with XXX: one two XXX four five six 
+
+Removing from Front: 
+two XXX four five six 
+
+Removing from Middle: 
+two four five six 
+
+Removing from End: 
+two four five 
+
+Inserting in Front: 
+frontTest two four five 
+
+Inserting in Middle: 
+frontTest middleTest two four five 
+
+Inserting into End: 
+frontTest middleTest two four five endTest 
+
+
+Testing the Reverse Function:
+Inserted apple at position 1
+Inserted banana at position 2
+Inserted carrot at position 3
+Inserted date at position 4
+Inserted eggplant at position 5
+Inserted fig at position 6
+
+Original List: 
+apple banana carrot date eggplant fig 
+
+Reversed List: 
+fig eggplant date carrot banana apple 
+
+Robert-Gs-MBP-6:linkedList griesrt$ 

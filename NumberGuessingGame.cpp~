@@ -1,0 +1,39 @@
+#include <iostream>
+#include <algorithm>
+#include "NumberGuesser.h"
+using namespace std;
+
+int main()
+{
+  int imin = 1;
+  int imax = 100;
+  int find;
+  int imid;
+  int arr[imax];
+  char value;
+  bool done = false;
+  bool gameOver = false;
+
+
+  NumberGuesser guesser (1, 100);
+
+  cout << "Think of a number between 1 and 100" << endl;
+  
+  while(!done) {
+    imid = guesser.getCurrentGuess();
+    
+    cout << "Is the number " << imid << "? (h/l/c) :" << endl;
+    cin >> value;
+    
+    if(value == 'h')
+      guesser.higher(); 
+    else if(value == 'l')
+      guesser.lower();
+    else if(value == 'c') {
+      cout << "You picked " << imid << "? Great pick. " << endl;
+      done = true;
+    } else 
+      cout << "Incorrect key. Please enter h, l, or c." << endl;
+  }
+  return 0;
+}

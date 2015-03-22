@@ -1,0 +1,150 @@
+﻿//Amelie Cameron Assignment 8                                                                                                                                                                                     
+//This program stores pairs of baseball team names and win counts into a struct named WinRecord. The data is stored in a dynamically allocated array of WinRecord structs. The user determines how many teams they will enter and then the data is initialized, sorted, and displayed in order.                                                                                                                                          
+
+#include <iostream>
+#include <cstdlib>
+#include <cstring>
+#include <sstream>
+using namespace std;
+
+#define MAX_CHAR_INPUT 50
+#define MAX_INT_INPUT 4
+
+struct WinRecord
+{
+  int wins;
+  char* name;
+};
+
+void initializeData(WinRecord* standings, int size)
+{
+  char* winC = new char[MAX_INT_INPUT];
+  for(int i = 0; i < size; ++i)
+  {
+    cout << "Enter team name # " << i+1 << " : " << endl;
+    standings[i].name = new char[MAX_CHAR_INPUT];
+    cin.getline(standings[i].name, MAX_CHAR_INPUT, '\n');
+
+    cout << "Enter team # " << i+1 << "'s win count: " << endl;
+
+    cin.getline(winC, MAX_INT_INPUT, '\n');
+    standings[i].wins = atoi(winC);
+    memset((void*)winC, '0', sizeof(winC));
+  }
+  delete winC;
+}
+
+void sortData(WinRecord* standings, int size)
+{
+  int i;
+  int j;
+  int max;
+
+  for(i = 0; i < size-1; i++)
+    {
+      max = i;
+
+      for(j = i+1; j < size; j++)
+        {
+          if(standings[j].wins > standings[max].wins)
+            {
+              max = j;
+            }
+        }
+      if(max != i)
+        {
+          swap(standings[i].wins, standings[max].wins);
+          swap(standings[i].name, standings[max].name);
+        }
+    }
+}
+
+void displayData(WinRecord* standings, int size)
+{
+  cout << "Win Record: " << endl;
+
+  for(int i = 0; i < size; i++)
+    {
+      cout << standings[i].name << " : ";
+      cout << standings[i].wins << endl;
+    }
+  cout << endl;
+}
+
+int main()
+{
+
+  WinRecord* standings = NULL;
+  int size;
+
+  cout << "How many baseball teams are in the league? : " << endl;
+  char *s = new char[MAX_CHAR_INPUT];
+  cin.getline(s, MAX_CHAR_INPUT);
+  size = atoi(s);
+
+  standings = new WinRecord[size];
+
+  initializeData(standings, size);
+
+  sortData(standings, size);
+
+  displayData(standings, size);
+
+  for(int i = 0; i < size; ++i) 
+ {
+    delete standings[i].name;
+  }
+  delete s;
+  s = NULL;
+  delete standings;
+  standings = NULL;
+
+  return 0;
+}
+
+robert-gs-mbp:amelie griesrt$ g++ leaguestructs.cpp
+robert-gs-mbp:amelie griesrt$ ./a.out
+How many baseball teams are in the league? : 
+5
+Enter team name # 1 : 
+The Giants
+Enter team # 1's win count: 
+98
+Enter team name # 2 : 
+The Diamondbacks
+Enter team # 2's win count: 
+78
+Enter team name # 3 : 
+The Rockies
+Enter team # 3's win count: 
+67
+Enter team name # 4 : 
+The Marlins
+Enter team # 4's win count: 
+84
+Enter team name # 5 : 
+The Red Sox
+Enter team # 5's win count: 
+86
+Win Record: 
+The Giants : 98
+The Red Sox : 86
+The Marlins : 84
+The Diamondbacks : 78
+The Rockies : 67
+
+robert-gs-mbp:amelie griesrt$ 
+
+
+Ran Valgrind to check for memory leaks:
+
+==14500== LEAK SUMMARY:
+==14500==    definitely lost: 0 bytes in 0 blocks
+==14500==    indirectly lost: 0 bytes in 0 blocks
+==14500==      possibly lost: 0 bytes in 0 blocks
+==14500==    still reachable: 8,192 bytes in 2 blocks
+==14500==         suppressed: 25,408 bytes in 375 blocks
+
+There are no memory leaks so this means that all memory was deallocated correctly. 
+
+

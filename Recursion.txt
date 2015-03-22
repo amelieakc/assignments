@@ -1,0 +1,72 @@
+﻿// Amelie Cameron Assignment 1 part 1: Reversing a positive decimal integer using a recursive function
+#include <iostream>
+using namespace std;
+
+void reverse(int number) {
+  if(number == 0)
+    return;
+  else {
+    cout << number % 10;
+    reverse(number/10);
+  }
+}
+
+int main() {
+  int number;
+
+  cout << "Enter a positive decimal integer: " << endl;
+  cin >> number;
+
+  cout << "Integer in reverse: " << endl;
+  reverse(number);
+  cout << endl;
+
+  return 0;
+}
+
+
+// Amelie Cameron Assignment 1 part 2: Reversing a character string using a recursive function
+#include <iostream>
+#include <string>
+using namespace std;
+
+void writeBackward2(string s) {
+  int length = s.size();
+  if(length > 0) {
+    writeBackward2(s.substr(1, length-1));
+    cout << s.substr(0,1);
+  }
+}
+
+int main() {
+  string s ("A character sequence");
+
+  cout << "Enter a character string: " << endl;
+  getline(cin, s);
+
+  cout << "String in reverse: " << endl;
+  writeBackward2(s);
+  cout << endl;
+
+  return 0;
+}
+
+Sample output for both functions:
+
+
+Robert-Gs-MBP-4:amelie griesrt$ g++ recursion.cpp
+Robert-Gs-MBP-4:amelie griesrt$ ./a.out
+Enter a positive decimal integer: 
+123456789
+Integer in reverse: 
+987654321
+
+Robert-Gs-MBP-4:amelie griesrt$ g++ recursion2.cpp
+Robert-Gs-MBP-4:amelie griesrt$ ./a.out
+Enter a character string: 
+This is a character sequence.
+String in reverse: 
+.ecneuqes retcarahc a si sihT
+Robert-Gs-MBP-4:amelie griesrt$ 
+
+

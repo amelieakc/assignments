@@ -1,0 +1,26 @@
+#include "BlinkerCell.h"
+#include "AbstractCell.h"
+#include "ConwayWorld.h"
+
+BlinkerCell::BlinkerCell(ConwayWorld *w, int &r, int &c, bool alive) {
+  world = w;
+  row = r;
+  column = c;
+}
+
+bool BlinkerCell::willBeAliveInTheNextGeneration() {
+
+  if (isAlive()) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+bool BlinkerCell::isAlive() {
+  return true;
+}
+
+char BlinkerCell::displayChar() {
+  return isAlive() ? 'B' : '.';
+}

@@ -1,0 +1,65 @@
+#include <iostream>
+#include<cstdlib>
+#include <ctime>
+using namespace std;
+
+const int MAX_NUMBER = 100;
+const int NUM_BUCKETS = 100;
+
+void print(int* input)
+{
+  for(int i = 1; i <= MAX_NUMBER; i++)
+    cout << input[i] << " ";
+  cout << endl;
+}
+
+void bucketSort(int* input)
+{
+  int count[NUM_BUCKETS+1] = { 0 };
+ 
+  for(int i = 1; i <= MAX_NUMBER; i++)
+    {
+      count[input[i]]++;
+    }
+  
+  cout << "Count Array: " << endl;
+  for(int i = 1; i <= MAX_NUMBER; i++)
+    cout << count[i] << " ";
+  cout << endl;
+  
+  int curIndex = 1;
+  for(int i = 1; i <= MAX_NUMBER; i++)
+    { 
+      int curCount = count[i];
+      for(int j = 0; j < curCount; j++)
+	{
+	  input[curIndex] = i;
+	  curIndex++;
+	}
+    }
+}
+
+int main()
+{
+  srand(time(NULL));
+
+  cout << "The array consists of " << MAX_NUMBER << " elements: " << endl;
+
+  int input[MAX_NUMBER+1] = { 0 };
+
+  for(int i = 1; i <= MAX_NUMBER; i++)
+    {
+      int j = rand() % 100+1;
+      input[i] = j;
+    }
+
+  cout << "Input: " << endl;
+  print(input);
+
+  bucketSort(input);
+ 
+  cout << "Output: " << endl;
+  print(input);
+
+  return 0;
+}

@@ -1,0 +1,148 @@
+﻿//Amelie Cameron Assignment 6                                                                                                                                                                 
+//This program takes in baseball league team names and win counts from the user and assigns it to two parallel arrays. Then it sorts the data and outputs the league standings according to win count. Unlike the previous program, this one uses dynamic memory allocation to create the team name and score arrays.                                                                            
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <sstream>
+using namespace std;
+
+void initializeArrays(string names[], int wins[], int size)
+{
+
+  for(int i=0; i < size; i++)
+    {
+      string line;
+      cout << "Please enter team # "<< i+1 << ": " << endl;
+      getline(cin, names[i]);
+      cout << "Please enter the wins for team # " << i+1 << ": "<< endl;
+      getline(cin, line);
+      stringstream linestream(line);
+      linestream >> wins[i];
+    }
+}
+
+void sortData(string names[], int wins[], int size)
+{
+  int i;
+  int j;
+  int max;
+
+  //setting parameter for i                                                                                                                                                                      
+  for(i=0; i < size - 1; i++)
+    {
+      max = i;
+
+      //setting parameter for j                                                                                                                                                                  
+      for(j=i+1; j < size; j++)
+        {
+
+          if(wins[j] > wins[max])
+          {
+          max = j;
+          }
+        }
+      if(max != i)
+        {
+          swap(wins[i], wins[max]);
+          swap(names[i], names[max]);
+        }
+    }
+}
+
+void displayData(string* names, int* wins, int size)
+{
+  cout << "League Standings: " << endl;
+  for(int i=0; i< size; i++)
+    {
+      cout << names[i] << ": " << wins[i] << endl;
+    }
+}
+
+int main()
+{
+  string *names = NULL;
+  int *wins = NULL;
+  int size;
+  string line;
+
+  cout << "How many teams would you like to enter?: " << endl;
+  getline(cin, line);
+  stringstream linestream(line);
+  linestream >> size;
+
+  names = new string[size];
+  wins = new int[size];
+
+  initializeArrays(names, wins, size);
+  sortData(names, wins, size);
+  displayData(names, wins, size);
+
+  delete[] names;
+  names = NULL;
+  delete[] wins;
+  wins = NULL;
+
+  return 0;
+}
+
+robert-gs-mbp:~ griesrt$ g++ league.cpp
+robert-gs-mbp:~ griesrt$ ./a.out
+How many teams would you like to enter?: 
+4
+Please enter team # 1: 
+Red Sox
+Please enter the wins for team # 1: 
+56
+Please enter team # 2: 
+Giants
+Please enter the wins for team # 2: 
+89
+Please enter team # 3: 
+Diamondbacks
+Please enter the wins for team # 3: 
+67
+Please enter team # 4: 
+Dodgers
+Please enter the wins for team # 4: 
+45
+League Standings: 
+Giants: 89
+Diamondbacks: 67
+Red Sox: 56
+Dodgers: 45
+robert-gs-mbp:~ griesrt$ ./a.out
+How many teams would you like to enter?: 
+6
+Please enter team # 1: 
+Giants
+Please enter the wins for team # 1: 
+97
+Please enter team # 2: 
+Blue Jays
+Please enter the wins for team # 2: 
+45
+Please enter team # 3: 
+Marlins
+Please enter the wins for team # 3: 
+76
+Please enter team # 4: 
+Diamondbacks
+Please enter the wins for team # 4: 
+75
+Please enter team # 5: 
+Padres
+Please enter the wins for team # 5: 
+84
+Please enter team # 6: 
+Red Sox
+Please enter the wins for team # 6: 
+64
+League Standings: 
+Giants: 97
+Padres: 84
+Marlins: 76
+Diamondbacks: 75
+Red Sox: 64
+Blue Jays: 45
+robert-gs-mbp:~ griesrt$ 

@@ -1,0 +1,23 @@
+#ifndef BLINKERCELL_H
+#define BLINKERCELL_H
+
+#include <iostream>
+#include "AbstractCell.h"
+
+class ConwayWorld;
+
+using namespace std;
+
+class BlinkerCell : public AbstractCell {
+
+ public:
+  BlinkerCell(ConwayWorld* const, int &, int &, bool alive);
+  BlinkerCell();
+  virtual bool isAlive();
+  virtual bool willBeAliveInNextGeneration();
+  virtual char displayChar();
+
+};
+
+#endif
+

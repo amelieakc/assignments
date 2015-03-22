@@ -1,0 +1,81 @@
+﻿//Amelie Cameron Assignment 5
+// This assignment completes the getPosition function and implements a high score system using a sorted list data structure
+
+Output:
+
+Robert-Gs-MBP:SortedListHasA griesrt$ g++ LinkedList.cpp Node.cpp PrecondViolatedExcep.cpp SortedListHasA.cpp main.cpp
+Robert-Gs-MBP:SortedListHasA griesrt$ ./a.out
+======================================
+Arcade Scores List: 
+Adding 1000
+Adding 2000
+Adding 3000
+Adding 4000
+Adding 5000
+The sorted list contains 
+5000 4000 3000 2000 1000 
+
+Enter a high score: 
+100
+The sorted list contains 
+5000 4000 3000 2000 1000 100 
+
+Enter another score? (y / n): 
+y
+Enter a high score: 
+5555
+The sorted list contains 
+5555 5000 4000 3000 2000 1000 100 
+
+Enter another score? (y / n): 
+y
+Enter a high score: 
+3500
+The sorted list contains 
+5555 5000 4000 3500 3000 2000 1000 100 
+
+Enter another score? (y / n): 
+y
+Enter a high score: 
+3501
+The sorted list contains 
+5555 5000 4000 3501 3500 3000 2000 1000 100 
+
+Enter another score? (y / n): 
+y
+Enter a high score: 
+10001
+The sorted list contains 
+10001 5555 5000 4000 3501 3500 3000 2000 1000 100 
+
+Enter another score? (y / n): 
+y
+Enter a high score: 
+102
+The sorted list contains 
+10001 5555 5000 4000 3501 3500 3000 2000 1000 102 100 
+
+Enter another score? (y / n): 
+n
+Goodbye!
+Robert-Gs-MBP:SortedListHasA griesrt$ 
+
+
+Break for negative score: 
+
+Robert-Gs-MBP:SortedListHasA griesrt$ g++ LinkedList.cpp Node.cpp PrecondViolatedExcep.cpp SortedListHasA.cpp main.cpp
+Robert-Gs-MBP:SortedListHasA griesrt$ ./a.out
+======================================
+Arcade Scores List: 
+Adding 1000
+Adding 2000
+Adding 3000
+Adding 4000
+Adding 5000
+The sorted list contains 
+5000 4000 3000 2000 1000 
+
+Enter a high score: 
+-12
+Robert-Gs-MBP:SortedListHasA griesrt$ 
+

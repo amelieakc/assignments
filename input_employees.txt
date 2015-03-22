@@ -1,0 +1,3 @@
+Employee	Hours	Hourly          
+Joe Sudds	    45.50	       10.34
+Robert Gries	    35.00	       70.50

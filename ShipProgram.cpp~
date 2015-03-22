@@ -1,0 +1,44 @@
+#tContains(s2, 2, 0, true, 22);
+testContains(s2, 3, 0, false, 23);
+}
+
+void testCollidesWith() {
+  point origin(0, 0);
+
+  Ship s1(origin, HORIZONTAL, 3);
+  Ship collisionShip(origin, VERTICAL, 4);
+
+  if (!s1.collidesWith(collisionShip)) 
+    cout << "problem with collides with 1" << endl;
+
+  point oneOne(1, 1);
+  Ship noCollisionShip(oneOne, HORIZONTAL, 3);
+
+  if (s1.collidesWith(noCollisionShip))
+    cout << "problem with collides with 2" << endl;
+}
+
+void testHitMethods() {
+  point origin(0, 0);
+  Ship s1(origin, HORIZONTAL, 3);
+
+  point p = origin;
+
+  s1.shotFiredAtPoint(p);
+  if (s1.hitCount() != 1) cout << "Problem: hitCount 1" << endl;
+  if (s1.isSunk()) cout << "Problem with isSunk 1" << endl;
+
+  // Further testing required
+}
+
+int main() {
+  testHitMethods();
+  testCollidesWith();
+  testCopyAssignmentAndConstructor();
+  testThreeArgConstructorAndContainsPoint();
+}
+
+
+
+
+

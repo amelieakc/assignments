@@ -1,0 +1,34 @@
+﻿Output:
+
+Robert-Gs-MBP:amelie griesrt$ g++ calculator.cpp
+Robert-Gs-MBP:amelie griesrt$ ./a.out
+Enter an infix expression: 
+7/(3+4)
+Converted to postfix expression: 
+734+/
+The result is: 1
+Robert-Gs-MBP:amelie griesrt$ ./a.out
+Enter an infix expression: 
+7/3+4
+Converted to postfix expression: 
+73/4+
+The result is: 6
+Robert-Gs-MBP:amelie griesrt$ ./a.out
+Enter an infix expression: 
+(5*3)/(1+2)
+Converted to postfix expression: 
+53*12+/
+The result is: 5
+Robert-Gs-MBP:amelie griesrt$ ./a.out
+Enter an infix expression: 
+9/(1+2)
+Converted to postfix expression: 
+912+/
+The result is: 3
+Robert-Gs-MBP:amelie griesrt$ ./a.out
+Enter an infix expression: 
+(7+7)*2/(1+3)
+Converted to postfix expression: 
+77+2*13+/
+The result is: 7
+Robert-Gs-MBP:amelie griesrt$ 

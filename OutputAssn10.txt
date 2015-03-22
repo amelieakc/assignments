@@ -1,0 +1,66 @@
+﻿robert-gs-mbp:amelie griesrt$ g++ NumberGuesser.cpp NumberGuessingGame.cpp
+robert-gs-mbp:amelie griesrt$ ./a.out
+Think of a number between 1 and 100
+Is the number 50? (h/l/c) :
+h
+Is the number 75? (h/l/c) :
+h
+Is the number 88? (h/l/c) :
+h
+Is the number 94? (h/l/c) :
+h
+Is the number 97? (h/l/c) :
+l
+Is the number 95? (h/l/c) :
+h
+Is the number 96? (h/l/c) :
+c
+You picked 96? Great pick. 
+Would you like to play again? (y/n)
+y
+Think of a number between 1 and 100
+Is the number 50? (h/l/c) :
+l
+Is the number 25? (h/l/c) :
+l
+Is the number 12? (h/l/c) :
+l
+Is the number 6? (h/l/c) :
+c
+You picked 6? Great pick. 
+Would you like to play again? (y/n)
+y
+Think of a number between 1 and 100
+Is the number 50? (h/l/c) :
+d
+Incorrect key. Please enter h, l, or c.
+Is the number 50? (h/l/c) :
+h
+Is the number 75? (h/l/c) :
+c
+You picked 75? Great pick. 
+Would you like to play again? (y/n)
+d
+Incorrect key. Goodbye.
+robert-gs-mbp:amelie griesrt$ ./a.out
+Think of a number between 1 and 100
+Is the number 50? (h/l/c) :
+l
+Is the number 25? (h/l/c) :
+l
+Is the number 12? (h/l/c) :
+h
+Is the number 18? (h/l/c) :
+l
+Is the number 15? (h/l/c) :
+h
+Is the number 16? (h/l/c) :
+h
+Is the number 17? (h/l/c) :
+c
+You picked 17? Great pick. 
+Would you like to play again? (y/n)
+n
+Thanks for playing!
+robert-gs-mbp:amelie griesrt$ 
+
