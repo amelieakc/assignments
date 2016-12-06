@@ -1,4 +1,4 @@
-﻿//Amelie Cameron Assignment 7 C-Strings                                                                                   
+//Amelie Cameron Assignment 7 C-Strings                                                                                   
 // This program implements functions that deal with null terminated C-Style strings.                                     
 // The 6 functions accomplish the following: 1-return the last index of a target char, 2-reverses any string passed in, 3-replaces all target chars with a replacement char,  4-finds the first index of a substring in any given string, 5-finds if a given string is a palindrome, 6- EXTRA reverses the words in a given string.                                       
 
