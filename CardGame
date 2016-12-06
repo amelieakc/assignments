@@ -1,4 +1,4 @@
-﻿//Amelie Cameron Assignment 4                                                                                                                
+//Amelie Cameron Assignment 4                                                                                                                
 // This program reads in 5 cards (values 2-9, no face cards/suits) then analyzes and prints out the hand they represent                      
 
 #include <iostream>
