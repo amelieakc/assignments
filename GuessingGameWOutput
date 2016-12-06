@@ -1,39 +1,33 @@
-{\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf360
-{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-\margl1440\margr1440\vieww9000\viewh8400\viewkind0
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
-
-\f0\fs24 \cf0 #include <iostream>                                                                                                                           \
+#include <iostream>                                                                                                                           \
 #include <stdlib.h>                                                                                                                           \
 #include <algorithm>                                                                                                                          \
 using namespace std;                                                                                                                          \
                                                                                                                                               \
-char getUserResponseToGuess(int guess) \{                                                                                                      \
+char getUserResponseToGuess(int guess){                                                                                                      \
   char find;                                                                                                                                  \
   cout << "Is your number " << guess <<" ? (h / c / l):" << endl;                                                                             \
   cin >> find;                                                                                                                                \
   return find;                                                                                                                                \
-\}                                                                                                                                             \
+}                                                                                                                                             \
                                                                                                                                               \
-int getMidPoint(int min, int max) \{                                                                                                           \
+int getMidPoint(int min, int max) {                                                                                                           \
   return (min + max) / 2;                                                                                                                     \
-\}                                                                                                                                             \
+}                                                                                                                                             \
                                                                                                                                               \
-bool shouldPlayAgain() \{                                                                                                                      \
+bool shouldPlayAgain() {                                                                                                                      \
   char answer;                                                                                                                                \
   cout << "Would you like to play again? (y / n): " << endl;                                                                                  \
   cin >> answer;                                                                                                                              \
                                                                                                                                               \
-  if(answer == 'y') \{                                                                                                                         \
-    return true; \}                                                                                                                            \
+  if(answer == 'y') {                                                                                                                         \
+    return true; }                                                                                                                            \
   else \{                                                                                                                                      \
     cout << "That was fun! Goodbye." << endl;                                                                                                 \
-    return false; \}                                                                                                                           \
-\}                                                                                                                                             \
+    return false; }                                                                                                                           \
+}                                                                                                                                             \
                                                                                                                                               \
 int binary_search(int arr[], int imin, int imax)                                                                                              \
-\{                                                                                                                                             \
+{                                                                                                                                             \
   int imid = getMidPoint(imin, imax);                                                                                                         \
   // imid is the guess                                                                                                                        \
   char find = getUserResponseToGuess(imid);                                                                                                   \
@@ -42,7 +36,7 @@ int binary_search(int arr[], int imin, int imax)                                
     return binary_search(arr, imin, imid-1);                                                                                                  \
   else if(find == 'h')                                                                                                                        \
     return binary_search(arr, imid+1, imax);                                                                                                  \
-  else if(find == 'c') \{                                                                                                                      \
+  else if(find == 'c') {                                                                                                                      \
     cout << imid <<" is the correct number!" << endl;                                                                                         \
     return imid;                                                                                                                              \
  \}  else                                                                                                                                      \
