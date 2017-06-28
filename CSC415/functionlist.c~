@@ -1,0 +1,42 @@
+/*
+Author: Amelie Cameron
+Professor: Hao Yue
+CSC 415
+Assignment 2: List of Functions
+Due 06/21/17 
+*/
+
+#include <sys/types.h>
+#include <stdio.h>
+#include <unistd.h>
+
+
+int main(){
+  pid_t = pid; 
+  char buffer[];
+  int n;
+  
+  while(true){
+    //use fgets() to get user input 
+    fgets(buffer, n, stdin);
+    
+    switch(){
+    case 1:
+      //if user input == 1
+      pid = fork();
+      if(pid == 0){
+      //print "Hello World"
+    }
+    
+    case 2:
+    //list files in current directory
+      execlp();
+
+    case 3: 
+      exit();
+      
+    case 4: 
+      //other input, print error message
+    }
+  }
+}
