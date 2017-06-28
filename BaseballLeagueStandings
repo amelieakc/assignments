@@ -1,4 +1,4 @@
-﻿//Amelie Cameron Assignment 6                                                                                                                                                                 
+//Amelie Cameron Assignment 6                                                                                                                                                                 
 //This program takes in baseball league team names and win counts from the user and assigns it to two parallel arrays. Then it sorts the data and outputs the league standings according to win count. Unlike the previous program, this one uses dynamic memory allocation to create the team name and score arrays.                                                                            
 
 #include <iostream>

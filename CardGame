@@ -1,5 +1,5 @@
-//Amelie Cameron Assignment 4
-// This program reads in 5 cards (values 2-9, no face cards/suits) then analyzes and prints out the hand they represent
+//Amelie Cameron Assignment 4                                                                                                                
+// This program reads in 5 cards (values 2-9, no face cards/suits) then analyzes and prints out the hand they represent                      
 
 #include <iostream>
 #include <fstream>
@@ -22,9 +22,9 @@ bool containsPair(int hand[])
   for(int i=0; i< size -1; i++)
     {
       if(hand[i] == hand[i+1])
-	{
-	  return true;
-	}
+        {
+          return true;
+        }
     }
   return false;
 }
@@ -37,15 +37,15 @@ bool containsTwoPair(int hand[])
   while(i < (size - 1))
     {
       if(hand[i] == hand[i+1])
-	{
-	  numPair += 1;
-	  i += 2;
-	  if(numPair ==2)
-	    {
-	      return true;
-	    }
-	  continue;
-	}
+        {
+          numPair += 1;
+          i += 2;
+          if(numPair ==2)
+            {
+              return true;
+            }
+          continue;
+        }
       i++;
     }
   return false;
@@ -57,9 +57,9 @@ bool containsThreeOfaKind(int hand[])
   for(int i=0; i< size -2; i++)
     {
       if((hand[i] == hand[i+1]) && (hand[i] == hand[i+2]))
-	{
-	  return true;
-	}
+        {
+          return true;
+        }
     }
   return false;
 }
@@ -67,12 +67,12 @@ bool containsThreeOfaKind(int hand[])
 
 bool containsStraight(int hand[])
 {
-  for(int i=0; i< size-1; i++) 
+  for(int i=0; i< size-1; i++)
     {
-      if(hand[i] != (hand[i+1]-1)) 
-	{
-	  return false;
-	}
+      if(hand[i] != (hand[i+1]-1))
+        {
+          return false;
+        }
     }
   return true;
 }
@@ -87,26 +87,26 @@ bool containsFullHouse(int hand[])
   while(i < (size - 1))
     {
       if((hand[i] == hand[i+1]) && (hand[i] == hand[i+2]) && hasTriple == false)
-	{
-	  hasTriple = true;
-	  i += 3;
-	  continue;
-	}
+        {
+          hasTriple = true;
+          i += 3;
+          continue;
+        }
       if(hand[i] == hand[i+1])
-	{
-	  hasDouble = true;
-	  i += 2;
-	}
-     
+        {
+          hasDouble = true;
+          i += 2;
+        }
+
       if((hasDouble) && (hasTriple))
-	{
-	  return true;
-	}
+        {
+          return true;
+        }
       i++;
     }
 
   return false;
-} 
+}
 
 
 bool containsFourOfaKind(int hand[])
@@ -114,9 +114,9 @@ bool containsFourOfaKind(int hand[])
   for(int i=0; i< size -3; i++)
     {
       if((hand[i] == hand[i+1]) && (hand[i] == hand[i+2]) && (hand[i] == hand[i+3]))
-	{
-	  return true;
-	}
+        {
+          return true;
+        }
     }
   return false;
 }
@@ -125,25 +125,25 @@ bool containsFourOfaKind(int hand[])
 int main() {
 
   int card_1, card_2, card_3, card_4, card_5;
-  
+
   cout << "Enter 5 numeric cards, no face cards. Use 2 - 9." << endl;
   cin >> card_1;
   cin >> card_2;
   cin >> card_3;
   cin >> card_4;
   cin >> card_5;
-  
+
   int hand[] = {card_1, card_2, card_3, card_4, card_5};
 
     sort(hand, hand + size);
-    
+
    if((hand[0] < 2) || (hand[4] > 9))
       {
-	cout << "The card values are out of range (2-9 only)" << endl;
-	return 1;
-      } 
+        cout << "The card values are out of range (2-9 only)" << endl;
+        return 1;
+      }
 
-   if (containsFourOfaKind(hand)) 
+   if (containsFourOfaKind(hand))
     {
       cout << "Four of a Kind" << endl;
     }
@@ -169,8 +169,76 @@ int main() {
     }
     else
     {
-      cout << "High Card" << endl;
-    }
+     cout << "High Card" << endl;
+     }
     return 0;
   }
 
+
+
+robert-gs-mbp:amelie griesrt$ g++ assignment4.cpp
+robert-gs-mbp:amelie griesrt$ ./a.out
+Enter 5 numeric cards, no face cards. Use 2 - 9.
+55
+4
+4
+4
+4
+The card values are out of range (2-9 only)
+robert-gs-mbp:amelie griesrt$ ./a.out
+Enter 5 numeric cards, no face cards. Use 2 - 9.
+2  
+4
+6
+3
+9
+High Card
+robert-gs-mbp:amelie griesrt$ ./a.out
+Enter 5 numeric cards, no face cards. Use 2 - 9.
+2
+5
+6
+8
+6
+One Pair
+robert-gs-mbp:amelie griesrt$ ./a.out
+Enter 5 numeric cards, no face cards. Use 2 - 9.
+3
+6
+3
+6
+8
+Two Pairs
+robert-gs-mbp:amelie griesrt$ ./a.out
+Enter 5 numeric cards, no face cards. Use 2 - 9.
+7
+8
+6
+7
+7
+Three of a Kind
+robert-gs-mbp:amelie griesrt$ ./a.out
+Enter 5 numeric cards, no face cards. Use 2 - 9.
+5
+7
+6
+9
+8
+Straight
+robert-gs-mbp:amelie griesrt$ ./a.out
+Enter 5 numeric cards, no face cards. Use 2 - 9.
+5
+7
+5
+7
+5
+Full House
+robert-gs-mbp:amelie griesrt$ ./a.out
+Enter 5 numeric cards, no face cards. Use 2 - 9.
+8
+5
+8
+8
+8
+Four of a Kind
+robert-gs-mbp:amelie griesrt$ 
